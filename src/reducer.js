@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { HANDLE_INPUT } from './actions';
 
 const initialState = {
-  list: ['carrots'],
+  list: [{ id: 1, name: 'carrots' }],
   value: '',
 };
 

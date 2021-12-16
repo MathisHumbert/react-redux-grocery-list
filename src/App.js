@@ -18,12 +18,14 @@ function App() {
             className="grocery"
             value={value}
             onChange={(e) => dispatch(handleInput(e))}
+            placeholder="e.g eggs"
           />
           <button className="submit-btn" type="btn">
             submit
           </button>
         </div>
       </form>
+      <List />
     </section>
   );
 }
