@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import List from './List';
+import Alert from './Alert';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleInput } from './actions';
 
 function App() {
+  const dispatch = useDispatch();
+  const { value } = useSelector((state) => state.reducer);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="section-center">
+      <form className="grocery-form">
+        <h3>grocery bud</h3>
+        <div className="form-control">
+          <input
+            type="text"
+            className="grocery"
+            value={value}
+            onChange={(e) => dispatch(handleInput(e))}
+          />
+          <button className="submit-btn" type="btn">
+            submit
+          </button>
+        </div>
+      </form>
+    </section>
   );
 }
 
