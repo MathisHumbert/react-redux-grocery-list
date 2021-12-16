@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
 
 const Alert = () => {
-  return <h2>alert component</h2>
-}
+  const { alert } = useSelector((state) => state.reducer);
 
-export default Alert
+  return <p className={`alert alert-${alert.type}`}>{alert.msg}</p>;
+};
+
+export default Alert;
